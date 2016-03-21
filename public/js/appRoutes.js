@@ -3,7 +3,7 @@ angular.module('snapTest')
 			$routeProvider
 			.when('/', {
 				templateUrl : '/html/index.html',
-				controller	: 'controlHome'
+				controller	: 'controlIndex'
 			})
 			.when('/open', {
 				templateUrl : '/html/open.html',
