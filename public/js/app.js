@@ -1,5 +1,6 @@
 angular.module('snapTest',[
 	'ngRoute',
 	'ngResource', 
-	'leaflet-directive'
+	'leaflet-directive',
+	'angularUtils.directives.dirPagination'
 	])

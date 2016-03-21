@@ -1,0 +1,42 @@
+<div class="row container-fluid">
+	<div class="openHeader row col-xs-10">
+		<h3>View Chat Records</h3>
+	</div>
+	<div class="row">
+	    <div class="col-xs-4">
+	      <h5>Page: {{ currentPage }}</h5>
+	    </div>
+	    <div class="col-xs-4">
+	      <label for="search">Search:</label>
+	      <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+	    </div>
+	    <div class="col-xs-4">
+	      <label for="search">items per page:</label>
+	      <select ng-model="pageSize">
+	      	<option>25</option>
+	      	<option>50</option>
+	      	<option>75</option>
+	      	<option>100</option>
+	      </select>
+	      <!-- <input type="number" min="1" max="100" class="form-control" ng-model="pageSize"> -->
+	    </div>
+	  </div>
+	  <br>
+	  <div class="panel panel-default">
+	    <div class="panel-body">
+
+	      <ul>
+	        <li dir-paginate="snap in snapData | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ snap.requested_by }}</li>
+
+	        <div ng-controller="paginationControl" class="other-controller">
+              <div class="text-center">
+		          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="html/dirPagination.tpl.html"></dir-pagination-controls>
+              </div>
+            </div>
+	        
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+
+</div>

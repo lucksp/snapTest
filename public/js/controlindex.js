@@ -1,6 +1,6 @@
 angular.module('snapTest')
     .controller('controlIndex',['$scope', '$http', 'factorySnap', function($scope, $http, factorySnap){
-    	
+
 	angular.extend($scope, {
 	                centerMap: {
 	                    lat: 28.808,
@@ -12,8 +12,9 @@ angular.module('snapTest')
 	                }		                
 	})
 
-    	factorySnap.get().then(function(responseData){
-    		$scope.snapData = responseData.data
+	
+	factorySnap.get().then(function(responseData){
+		$scope.snapData = responseData.data
 
 // GLOBAL VARIABLES
 		var sum 		= 0
@@ -30,9 +31,17 @@ angular.module('snapTest')
 				$scope.chatCount = i
 				$scope.avgScore = Math.round(sum / $scope.chatCount)
 				$scope.avgTime = Math.round(waitTime / $scope.chatCount)
-
 				var stndDuration = Math.round(duration/$scope.chatCount)
 				$scope.avgDuration = Math.floor(stndDuration/60) + ':' + stndDuration%60
+
+				    $scope.getCSSClass = function() {
+				    	if($scope.avgScore >= 50){
+				    		return 'scoreOver50'
+				    	}
+				    	else {
+				    		return 'scoreUnder50'
+				    	}
+				  }     
 			}
     		if($scope.snapData[i].type === "offline"){
    				$scope.offlineCount = i
@@ -40,16 +49,41 @@ angular.module('snapTest')
  // TOP REFERRALS
     		if($scope.snapData[i].referrer_url.match('http')){
     			$scope.referralList.push($scope.snapData[i].referrer_url.match(/([^\/,\s]+\.[^\/,\s]+?)(?=\/|,|\s|$|\?|#)/g, ""))
-    			// console.log($scope.referralList)
-    			// $scope.topReferrals = function(referralList){
-	    		// 	var counts = {}
-	    		// 	var value
-	    		// 	for(var j = 0; j < $scope.referralList.length; j++){
-	    		// 		value = $scope.referralList[j]
-	    		// 		count[value]++
-	    		// 	}
-	    		// 	console.log(counts)
-    			// }
+    			var mostFrequentItemCount = function(collection) {
+    			    collection.sort()
+    			    var i=0
+    			    var ans=[]
+    			    var int_ans=[]
+    			    while(i<collection.length)
+    			    {
+    			        if(collection[i]===collection[i+1])
+    			        {
+    			            int_ans.push(collection[i])
+    			        }
+    			        else
+    			        {
+    			            int_ans.push(collection[i])
+    			            ans.push(int_ans)
+    			            int_ans=[]
+    			        }
+    			        i++;
+    			    }
+    			    $scope.high_count=0
+    			    $scope.high_ans
+    			    i=0;
+    			    while(i<ans.length)
+    			    {
+    			        if(ans[i].length>$scope.high_count)
+    			        {
+    			            $scope.high_count=ans[i].length
+    			            $scope.high_ans=ans[i][0][0]
+    			            // console.log(high_count)
+    			        }
+    			        i++;
+    			    }
+    			    return $scope.high_ans[0], ans
+    			}
+    			mostFrequentItemCount($scope.referralList)
     		}
 		}
 // MAPPING
@@ -61,11 +95,9 @@ angular.module('snapTest')
 		            lng 	: $scope.snapData[k].longitude,
 		            message	: 'created on: ' + new Date($scope.snapData[k].created_at)
 		        })
-		        console.log($scope.markers)
 		}               
 
 	})
-
 
  // var dt = new Date(1419675791970);
  // console.log(dt)
