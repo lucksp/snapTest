@@ -1,20 +1,34 @@
 <div class="row container-fluid">
+	<div class="row heading">
+		<h3>Dashboard</h3>
+	</div>
 	<div class="card-deck-wrapper">
 	  <div class="card-deck">
-	    <div class="card">
+	    <div class="card open">
 	      <div class="card-block">
-	        <h3 class="card-title">Open Cases</h3>
-	        <p class="card-text">{{chatCount}}</p>
+	      	<i class="fa fa-comments dashIcons"></i>
+	        <h3 class="card-title">Open Chats</h3>
+	        <div class="card-text">
+	        	<p>{{chatCount}}</p>
+	        </div>
 	      </div>
 	    </div>
-	    <div class="card">
-	      <h3 class="card-title">Offline Cases</h3>
-	      <p class="card-text">{{offlineCount}}</p>
-	    </div>
-	    <div class="card">
+	    <div class="card offline">
 	      <div class="card-block">
+	      	<i class="fa fa-folder-open  dashIcons"></i>
+	        <h3 class="card-title">Offline Cases</h3>
+	        <div class="card-text">
+	        	<p>{{offlineCount}}</p>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="card score">
+	      <div class="card-block">
+	      	<i class="fa fa-thumbs-o-up  dashIcons"></i>
 	        <h3 class="card-title">Average Chat Score</h3>
-	        <p class="card-text">{{avgScore}}</p>
+	        <div class="card-text">
+	        	<p>{{avgScore}}</p>
+	        </div>
 	      </div>
 	    </div>
 	  </div>
@@ -23,32 +37,54 @@
 <div class="row container-fluid">
 	<div class="card-deck-wrapper">
 	  <div class="card-deck">
-	    <div class="card">
+	    <div class="card avgWait">
 	      <div class="card-block">
+	      	<i class="fa fa-clock-o  dashIcons"></i>
 	        <h3 class="card-title">Average Wait Time</h3>
-	        <p class="card-text">{{avgTime}} seconds</p>
+	        <div class="card-text">
+	        	<p>{{avgTime}} sec</p>
+	        </div>
 	      </div>
 	    </div>
-	    <div class="card">
+	    <div class="card avgDur">
 	      <div class="card-block">
+	      	<i class="fa fa-play-circle-o  dashIcons"></i>
 	        <h3 class="card-title">Average Duration</h3>
-	        <p class="card-text">{{avgDuration}}</p>
+	        <div class="card-text">
+	        	<p>{{avgDuration}}</p>
+	        </div>
 	      </div>
 	    </div>
-	    <div class="card">
+	    <div class="card refer">
 	      <div class="card-block">
+	      	<i class="fa fa-link  dashIcons"></i>
 	        <h3 class="card-title">Popular Referrals</h3>
-	        <p class="card-text">{{}}</p>
+	        <div class="card-text">
+	        	<p>{{}}</p>
+	        </div>
 	      </div>
 	    </div>
 	  </div>
 	</div>
 </div>
+<div class="row heading map">
+	<h3><i class="fa fa-map-o"></i><span> Users By Location:</span></h3>
+</div>
 <div class="container-fluid">
-	<div class="row">
-		<h3>Users By Location:</h3>
-	</div>
-	<div class="row">
+	<div class="row mapDiv">
 		<leaflet lf-center="centerMap" markers="markers" defaults="defaults" height="600px" width="100%"></leaflet>
 	</div>
 </div>
+<footer class="row container-fluid">
+	<div class="">
+		<div class="col-xs-4 leftFoot">
+			LEFT FOOTER
+		</div>
+		<div class="col-xs-4 centerFoot">
+			CENTER FOOTER
+		</div>
+		<div class="col-xs-4 rightFoot">
+			RIGHT FOOTER
+		</div>
+	</div>
+</footer>
