@@ -50,7 +50,7 @@
 				      	</tr>
 				    </thead>
 				    <tbody>
-				    <tr dir-paginate="snap in chatData | orderBy:sortType:sortReverse | filter:q | itemsPerPage: pageSize" current-page="currentPage" data-toggle="modal" data-target="#myModal" ng-click="modalDetails(snap); runModalMap(snap)">
+				    <tr dir-paginate="snap in chatData | orderBy:sortType:sortReverse | filter:q | itemsPerPage: pageSize" current-page="currentPage" data-toggle="modal" data-target="#myModal" ng-click="modalDetails(snap)">
 				    	<td chatTableData>{{snap.requested_by}}</td>
 				        <td chatTableData>{{snap.created_at | date: 'fullDate'}}</td>
 				        <td chatTableData>{{snap.referrer_url || 'n/a'}}</td>
@@ -94,7 +94,15 @@
 	        	</div>
 	        	<div class="row">
 	        		<div class="col-xs-12">
-	        			<leaflet markers="markers" height="480px" width="100%"></leaflet>
+	        			<reverse-geocode lat="{{selectedUser.latitude}}" lng="{{selectedUser.longitude}}" />
+	        		</div>
+	        	</div>
+	        		<leaflet height="240px" width="50%"></leaflet>
+	        	<div class="row">
+	        		<div class="col-xs-12 chatHist" ng-repeat="chat in selectedUser.transcript">
+	        			<h5>{{chat.date | date:'mediumDate'}}</h5>
+	        			<p>{{chat.alias}}</p>
+	        			<p>{{chat.message}}</p>
 	        		</div>
 	        	</div>
 	        </div>

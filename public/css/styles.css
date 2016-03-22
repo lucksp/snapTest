@@ -185,7 +185,7 @@ body {
 	padding: 15px 30px;
 }
 
-table {
+.userData {
 	font-size: 1.5rem;
 }
 
@@ -194,6 +194,22 @@ table {
 	color: #394851;
 }
 
+.modal {
+	max-height: 75%;
+}
+
+.snapData {
+	display: flex;
+	justify-content: space-between;
+}
+
+.snapDataMap {
+	padding-bottom: 30px;
+}
+
+.chatHist {
+	overflow: scroll;
+}
 
 
 /* FOOTER */

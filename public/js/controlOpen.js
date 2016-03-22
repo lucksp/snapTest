@@ -1,6 +1,15 @@
 angular.module('snapTest')
     .controller('controlOpen',['$scope', '$http', 'factorySnap', function($scope, $http, factorySnap){
 
+
+	angular.extend($scope, {
+		center: {
+                lat: 51.505,
+                lng: -0.09,
+                zoom: 8
+            	}
+            })
+
     	factorySnap.get().then(function(responseData){
     		$scope.snapData = responseData.data
 
@@ -29,15 +38,18 @@ angular.module('snapTest')
 
 		var markers = [];
 		$scope.modalDetails = function(snap) {
-			$scope.selectedUser = snap	
+			$scope.selectedUser = snap
+
+			console.log($scope.selectedUser)
 		}
-		$scope.runModalMap = function(snap) {
-			markers.push({
-					focus: true,
-	                lat: $scope.selectedUser.latitude,
-	                lng: $scope.selectedUser.longitude
-	            });
-		}
+		// $('#myModal').on('shown',function(){
+		//         $scpope.markers.push({
+		//         	focus: true,
+	 //                lat: $scope.selectedUser.latitude,
+	 //                lng: $scope.selectedUser.longitude
+		//         })
+  //          })
+		
 
 }]);
 
