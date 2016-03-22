@@ -31,6 +31,7 @@ body {
 .navbar-nav {
 	position: absolute;
 	left: 300px;
+	color: #E7E7E7
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -39,6 +40,27 @@ body {
 
 .navbar-default .navbar-nav>li>a:hover {
 	color: #394851;
+}
+
+.navbar-right {
+	float: right;
+	color: #E7E7E7;
+	list-style-type: none;
+}
+	
+.navbar-right li {
+	padding: 15px;
+	display: inline;
+}
+
+.navbar-right .fa {
+	font-size: 3rem;
+	margin-top: 10px;
+}
+
+.badge {
+	margin-bottom: 20px;
+	background-color: #394851;
 }
 
 .heading h3 {
@@ -194,27 +216,66 @@ body {
 	color: #394851;
 }
 
-.modal {
-	max-height: 75%;
+.modal-dialog {
+	width: 75%;
 }
 
-.snapData {
-	display: flex;
-	justify-content: space-between;
+.modal-body {
+	max-height: calc(100vh - 210px);
+	overflow: auto;
+}
+
+.modal-body .row {
+	padding: 5px 30px;
+}
+
+.odd {
+	background-color: #E7E7E7;
+}
+
+.userStats p {
+	font-size: 1.5rem;
+	margin: 10px 0;
+}
+
+
+.chatHist h3 {
+	margin-left: 15px;
+}
+
+.chatHist h5 {
+	margin-left: 30px;
+	font-size: 1.5rem;
+}
+
+.chatHist p {
+	margin-left: 45px;
 }
 
 .snapDataMap {
 	padding-bottom: 30px;
 }
 
-.chatHist {
-	overflow: scroll;
-}
 
 
 /* FOOTER */
 footer {
 	padding: 15px;
+	margin-top: 30px;
+	text-align: center;
+	background-color: #5D7584;
+}
+
+.footerRow div {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+}
+
+.footerRow h5 {
+	font-size: 1.5rem;
+	color: #38aeff;
+}
+
+.footerRow p {
+	color: #E7E7E7;
 }

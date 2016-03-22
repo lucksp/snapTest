@@ -9,8 +9,8 @@ angular.module('snapTest')
 				templateUrl : '/html/open.html',
 				controller	: 'controlOpen'
 			})
-			.when('/complete', {
-				templateUrl : '/html/complete.html',
-				controller	: 'controlComplete'
+			.when('/offline', {
+				templateUrl : '/html/offline.html',
+				controller	: 'controlOffline'
 			})
 	}])

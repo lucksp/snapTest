@@ -93,7 +93,7 @@ angular.module('snapTest')
 		        	group	: 'snapData',
 		            lat 	: $scope.snapData[k].latitude,
 		            lng 	: $scope.snapData[k].longitude,
-		            message	: 'created on: ' + new Date($scope.snapData[k].created_at)
+		            message	: 'Created on: ' + new Date($scope.snapData[k].created_at) + '<br>Type: ' + $scope.snapData[k].type + '<br>Requested By: ' + $scope.snapData[k].requested_by + '<br>Chat Wait Time: ' + $scope.snapData[k].chat_waittime + ' seconds' + '<br>Chat Duration: ' + $scope.snapData[k].chat_duration + ' seconds'  + '<br>Chat Survey: ' + $scope.snapData[k].survey_score
 		        })
 		}               
 
