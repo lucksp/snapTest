@@ -164,6 +164,38 @@ body {
 	padding: 15px;
 }
 
+/* OPEN CHAT */
+.perPages {
+	margin-top: 30px;
+}
+
+.openHeader {
+	margin-left: 75px;
+}
+
+.openChatInfo {
+	padding-left: 225px;
+}
+
+.panel {
+	margin: auto 200px;
+}
+
+.panel-body {
+	padding: 15px 30px;
+}
+
+table {
+	font-size: 1.5rem;
+}
+
+.chatTableHeader a {
+	text-decoration: none;
+	color: #394851;
+}
+
+
+
 /* FOOTER */
 footer {
 	padding: 15px;
