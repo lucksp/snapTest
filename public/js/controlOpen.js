@@ -1,5 +1,5 @@
 angular.module('snapTest')
-    .controller('controlOpen',['$scope', '$http', '$timeout', 'leafletData', 'factorySnap', function($scope, $http, $timeout, leafletData, factorySnap){
+    .controller('controlOpen',['$scope', '$http', '$timeout', 'leafletData', '$window', 'factorySnap', function($scope, $http, $timeout, leafletData, $window, factorySnap){
 
     	factorySnap.get().then(function(responseData){
     		$scope.snapData = responseData.data
@@ -51,9 +51,9 @@ angular.module('snapTest')
                 if (value === true) {
                     leafletData.getMap().then(function(map) {
                       $timeout(function() {
-                        map.invalidateSize();
-                      }, 300);
-                    });
+                        map.invalidateSize()
+                      }, 300)
+                    })
                 }
             });
 			
@@ -67,6 +67,10 @@ angular.module('snapTest')
 
 			$scope.userWaitTime = Math.floor(waitTime/60) + ':' + waitTime%60
 			$scope.userDuration = Math.floor(duration/60) + ':' + duration%60
+		}
+
+		$scope.resetShowMap = function(){
+			$scope.showMap = !$scope.showMap
 		}
 }]);
 
