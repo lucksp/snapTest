@@ -54,7 +54,6 @@
 				    	<td>{{snap.requested_by}}</td>
 				        <td>{{snap.created_at | date: 'fullDate'}}</td>
 				        <td>{{snap.referrer_url || 'n/a'}}</td>
-				        <!-- <td><reverse-geocode lat="{{snap.latitude}}" lng="{{snap.latitude}}" /></td> -->
 				    </tr>
 			    </tbody>
 			  </table>
@@ -69,7 +68,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div ng-if="selectedUser" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
     	<div class="modal-content">
         	<div class="modal-header">
@@ -109,13 +108,13 @@
 	        			<p><strong>User Agent: </strong>{{selectedUser.user_agent}}</p>
 	        		</div>
 	        	</div>
-	        	<div class="row even">
+	        	<div class="row even userMapDiv">
 	        		<div class="col-xs-6 userStats">
 	        			<p><strong>User Location: </strong>
-<!-- 	        				<reverse-geocode lat="{{userLat}}" lng="{{userLng}}" /></p>
- -->	        		</div>
-	        		<div class="col-xs-6 userStats">
-	        			<leaflet height="240px" width="100%"></leaflet>
+	        				<reverse-geocode lat="{{selectedUser.latitude}}" lng="{{selectedUser.longitude}}" /></p>
+	        		</div>
+	        		<div class="col-xs-6 leafletDiv">
+	        			<leaflet ng-show="showMap" lf-center="center" markers="markers" height="240px" width="100%"></leaflet>
 	        		</div>
 	        	</div>
 	        	<div class="row chatHist">
